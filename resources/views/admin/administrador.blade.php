@@ -162,9 +162,13 @@
         <div class="content text-center" style="background-image: url('/pagina/img/ho.jpeg'); width: 100%; height: 100%; "> <!-- Aca se rellena para que muestre los hoteles -->
             <h1><font face="Times New Roman " color="white">Bienvenido Administrador</font></h1><br><br>
             <div class="container">
-                <a href="/ingresar" class="btns green">Ingresar Habitación</a>
                 <a href="lista_hoteles" class="btns green">Administrar Hoteles</a>
-                <a href="reservaciones" class="btns green">Administrar Reservas</a>
+                <a href="lista_habitaciones" class="btns green">Administrar Habitación</a>
+                <a href="reserva_admin" class="btns green">Reservar</a>
+                <a href="disponibilidad_admin" class="btns green">Cancelar Disponibilidad</a>
+                <a href="reservaciones" class="btns green">Administrar reservas</a>
+                <a href="ingresar" class="btns green">Agregar</a>
+                <a href="reportes" class="btns green">Reportes</a>
                 <a href="lista_usuarios" class="btns green">Administrar cuentas usuarios</a>
             </div>
         </div>
