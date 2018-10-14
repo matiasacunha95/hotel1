@@ -118,8 +118,8 @@
         </nav>
 
 
-        <div class="content text-center"> <!-- Aca se rellena para que muestre los hoteles -->
-            <h1>Bienvenido Recepcionista</h1><br><br>
+        <div class="content text-center" style="background-image: url('/pagina/img/ho.jpeg'); width: 100%; height: 100%; "> <!-- Aca se rellena para que muestre los hoteles -->
+            <h1><font face="Times New Roman " color="white">Bienvenido Recepcionista</font></h1><br><br>
             <div class="container">
                 <a href="" class="btns green">Reservas</a>
             </div>
