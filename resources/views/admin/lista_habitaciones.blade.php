@@ -169,7 +169,7 @@
                                             <th>Capacidad</th>
                                             <th>Precio</th>
                                             <th>Cantidad</th>
-                                            <th></th>
+                                            <th>Acción</th>
                                             </thread>
 
                                         <tbody>
@@ -183,7 +183,7 @@
                                         <td>{{$habi->precio}}</td>
                                         <td>{{$habi->cantidad}}</td>
 
-                                        <td> <a  href="{{route('lista_habitaciones.destroy', $habi->id)}}" class="btn btn-danger">Borrar</a> <a  href="{{route('habitacion.edit',$habi->id)}}" class="btn btn-blue">Editar</a></td>
+                                        <td> <a  href="{{route('lista_habitaciones.destroy', $habi->id)}}" class="btn btn-danger"><i class="pe-7s-trash"> Borrar</i></a> <a  href="{{route('habitacion.edit',$habi->id)}}" class="btn btn-blue"><i class="pe-7s-pen"> Editar</i></a></td>
 
                                         </tr>
                                         @endforeach
