@@ -63,25 +63,24 @@
                       <p>Habitaciones </p>
                   </a>
               </li>
-              <li class="active">
-					<a href="/reserva_admin">
-						<i class="pe-7s-server"></i>
-						<p>Reservar</p>
-					</a>
-			  </li>
               <li>
+					         <a href="/reserva_admin">
+						          <i class="pe-7s-server"></i>
+						          <p>Reservar</p>
+					         </a>
+			        </li>
+              <li class="active">
                   <a href="/disponibilidad_admin">
                       <i class="pe-7s-close-circle"></i>
                       <p>Disponibilidad</p>
                   </a>
-              </li>
+                </li>
               <li>
                   <a href="/reservaciones">
                       <i class="pe-7s-note2"></i>
                       <p>Administrar Reservas</p>
                   </a>
               </li>
-
               <li>
                   <a href="/ingresar">
                       <i class="pe-7s-server"></i>
@@ -169,9 +168,13 @@
 									<div class="card">
 
 										<div class= "container">
-											<h2>Buscar disponiblidad</h2>
-											<form class="form-group" method="POST" action="reservadmin/buscador">
+											<h2>Cancelar disponiblidad de habitación</h2>
+											<form class="form-group" method="POST" action="admin_disponibilidad/buscador">
 													@csrf
+                                                    <div class="form-group">
+                                                        <label for="">Ingrese Hotel</label>
+                                                        <input type="text" name="nombre_hotel" class="form-control" required>
+                                                    </div>
 													<div class="form-group">
 														<label for="">Ingrese un Pais</label>
 														<input type="text" name="nombre_pais" class="form-control" required>
@@ -180,23 +183,7 @@
 														<label for="">Ingrese una Ciudad</label>
 														<input type="text" name="nombre_ciudad" class="form-control" required>
 													</div>
-                          <div class="form-group">
-														<label for="">Ingrese una Capacidad</label>
-														<input type="text" name="capacidad" class="form-control">
-													</div>
-													<div class="form-group">
-														<label for="">Ingrese el Tipo de Habitacion</label>
-														<input type="text" name="tipo_habitacion" class="form-control" required>
-													</div>
-													<div class="form-group">
-												<label for="">Fecha Ingreso</label>
-												<input type="date" name="fecha_ingreso" min="<?php echo date('Y-m-d');?>" class="form-control" required>
-											</div>
-											<div class="form-group">
-												<label for="">Fecha Salida</label>
-												<input type="date" name="fecha_salida"  min="<?php echo date('Y-m-d');?>" class="form-control" required>
-											</div>
-
+                                                    
 												<button type="submit" class="btn btn-primary" ><i class="pe-7s-search"></i> Buscar</button>
 										</div>
 									</div>

@@ -114,7 +114,7 @@ Route::post('/agregado_hotel', 'Administrador\Agregar_hotelController@store');
 
 
 
-                    /*Rserva Admin */
+                    /*Reserva Admin */
 Route::get('/reserva_admin', function () {
         return view('/admin/reserva_admin');
     });
@@ -134,6 +134,18 @@ Route::get('lista_usuarios/{id}/destroy',[
     'uses' => 'Administrador\Lista_usuariosController@destroy',
     'as'   => 'lista_usuarios.destroy']
 );
+
+                    /*Disponibilidad por fechas*/
+
+                    /*Rserva Admin */
+Route::get('disponibilidad_admin', function () {
+        return view('/admin/disponibilidad/disponibilidad');
+    });
+
+Route::resource('admin_disponibilidades', 'Administrador\DisponibilidadController');
+Route::post('admin_disponibilidad/buscador', 'Administrador\DisponibilidadController@buscador');
+Route::post('admin_disponibilidad/store', 'Administrador\DisponibilidadController@store');
+Route::get('admin_disponibilidad/{id}',['as' => 'admin_disponibilidad.show', 'uses' => 'Administrador\DisponibilidadController@show']);
 
 
 /*Digitador*/
