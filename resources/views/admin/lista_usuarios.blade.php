@@ -185,7 +185,7 @@
                                         <td>{{$users->email}}</td>
                                         <td>{{$users->telefono}}</td>
                                         <td>{{$users->tipo}}</td>
-                                        <td> <a  href="{{route('lista_usuarios.destroy', $users->id)}}" class="btn btn-danger">Borrar</a> </td>
+                                        <td> <a  href="{{route('lista_usuarios.destroy', $users->id)}}" class="btn btn-danger"><i class="pe-7s-trash"></i> Borrar</a> </td>
 
                                         </tr>
                                         @endforeach

@@ -183,7 +183,7 @@
 												<input type="date" name="fecha_salida"  min="<?php echo date('Y-m-d');?>" class="form-control" required>
 											</div>
 
-												<button type="submit" class="btn btn-primary" >Buscar</button>
+												<button type="submit" class="btn btn-primary" ><i class="pe-7s-search"></i> Buscar</button>
 										</div>
 									</div>
 
