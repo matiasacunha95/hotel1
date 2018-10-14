@@ -31,7 +31,12 @@
 				<input type="date" name="fecha_salida" min="<?php echo date('Y-m-d');?>" class="form-control" required>
 			</div>
 			<div class="form-group">
-				<input  type="hidden" name="estado" class="form-control" value="2">
+				<label for="">Motivo</label>
+					<select name="estado" class="form-control">
+                        <option value="2 " selected="selected">Mantenimiento</option>
+                        <option value="3"  selected="selected">Remodelación</option>
+                        <option value="4"  selected="selected">Otro</option>
+                   	</select>
 			</div>
 
 		<button type="submit" class="btn btn-primary">Guardar</button>

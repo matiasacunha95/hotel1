@@ -31,23 +31,22 @@ class DisponibilidadController extends Controller
 
 
         // aca realizamos la busqueda de las habitacion segun los campos proporcionados por el cliente
+            $habitacion = DB::table('habitacion')
+                          ->join('hotel', 'hotel.id', '=', 'habitacion.id_hotel')
+                          ->join('ciudad', 'ciudad.id', '=', 'hotel.id_ciudad')
+                          ->join('pais', 'pais.id', '=', 'ciudad.id_pais')
+                          ->select('habitacion.id', 'hotel.nombre_hotel','ciudad.nombre_ciudad', 'habitacion.tipo_habitacion', 'habitacion.capacidad', 'habitacion.precio','habitacion.cantidad')
 
-        $habitacion = DB::table('habitacion')
-                      ->join('hotel', 'hotel.id', '=', 'habitacion.id_hotel')
-                      ->join('ciudad', 'ciudad.id', '=', 'hotel.id_ciudad')
-                      ->join('pais', 'pais.id', '=', 'ciudad.id_pais')
-                      ->select('habitacion.id', 'hotel.nombre_hotel','ciudad.nombre_ciudad', 'habitacion.tipo_habitacion', 'habitacion.capacidad', 'habitacion.precio','habitacion.cantidad')
+                          ->where([
+                                ['hotel.nombre_hotel', '=', $request->nombre_hotel],
+                                ['ciudad.nombre_ciudad', '=', $request->nombre_ciudad],
+                                 ['pais.nombre_pais', '=', $request->nombre_pais],
+                                 ['habitacion.estado', '=', 1]
+                                ])
 
-                      ->where([
-                            ['hotel.nombre_hotel', '=', $request->nombre_hotel],
-                            ['ciudad.nombre_ciudad', '=', $request->nombre_ciudad],
-                             ['pais.nombre_pais', '=', $request->nombre_pais],
-                             ['habitacion.estado', '=', 1]
-                            ])
+                          ->get();
 
-                      ->get();
-
-        return view('admin.disponibilidad.buscador_regi',compact('habitacion'));
+            return view('admin.disponibilidad.buscador_regi',compact('habitacion'));
 
     }
 
@@ -71,20 +70,25 @@ class DisponibilidadController extends Controller
      */
      public function store(Request $request)
     {
-
-        for ($i=0; $i < $request->cantidad; $i++) {
-            $reserva = new Reserva();
-            $reserva->id_users = $request->input('id_users');
-            $reserva->id_habitacion = $request->input('id_habitacion');
-            $reserva->num_personas = $request->input('num_personas');
-            $reserva->costo = 1;
-            $reserva->fecha_ingreso = $request->input('fecha_ingreso');
-            $reserva->fecha_salida = $request->input('fecha_salida');
-            $reserva->estado = $request->input('estado');
-            $reserva->save();
+        if (($request->input('fecha_ingreso')) <= ($request->input('fecha_salida')) ) {
+            for ($i=0; $i < $request->cantidad; $i++) {
+                $reserva = new Reserva();
+                $reserva->id_users = $request->input('id_users');
+                $reserva->id_habitacion = $request->input('id_habitacion');
+                $reserva->num_personas = $request->input('num_personas');
+                $reserva->costo = 1;
+                $reserva->fecha_ingreso = $request->input('fecha_ingreso');
+                $reserva->fecha_salida = $request->input('fecha_salida');
+                $reserva->estado = $request->input('estado');
+                $reserva->save();
+            }
+                                        
+            return view('admin.disponibilidad.guardado');
         }
-                                    
-        return view('admin.disponibilidad.guardado');
+
+        else{
+            return view('admin.disponibilidad.errorfecha');
+        }
 
 
     }
@@ -102,6 +106,13 @@ class DisponibilidadController extends Controller
 
         return view('admin.disponibilidad.reservar', compact('habitacion'));
 
+    }
+
+    public function destroy($id)
+    {
+        $reser = Reserva::find($id);
+        $reser->delete();
+        return redirect()->route('no_disponible');
     }
 
 }

@@ -152,6 +152,10 @@ Route::get('/no_disponible',
     'uses' => 'Administrador\DisponibilidadController@mostrar2',
     'as'   => 'no_disponible']);
 
+Route::get('admin_disponibilidad/{id}/destroy',[
+      'uses' => 'Administrador\DisponibilidadController@destroy',
+      'as'   => 'admin_disponibilidad.destroy']
+    );
 
 /*Digitador*/
 

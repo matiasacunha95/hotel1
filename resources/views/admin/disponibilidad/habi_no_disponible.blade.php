@@ -187,17 +187,21 @@
                                             @foreach($reserva as $reser)
 
                                             <tr>
-                                                @if($reser->estado == 2)
+                                                @if($reser->estado == 2 or $reser->estado == 3 or $reser->estado == 4 )
                                                     <td>{{$reser->id_habitacion}}</td>
                                                     <td>{{$reser->num_personas}}</td>
                                                     <td>{{$reser->fecha_ingreso}}</td>
                                                     <td>{{$reser->fecha_salida}}</td>
 
                                                 @if($reser->estado == 2)
-                                                    <td>Disponibilidad Cancelada</td>
+                                                    <td>Mantenimiento</td>
+                                                @elseif($reser->estado == 3)
+                                                    <td>Remodelación</td>
+                                                @else($reser->estado == 4)
+                                                    <td>Otro Motivo</td>
                                                 @endif
                                                 <!--<td>{{$reser->estado}}</td>-->
-                                                 <td> <a  href="{{route('reserva.destroy1', $reser->id)}}" onclick="return confirmacion(¿seguro que desea cancelar la reserva?)"class="btn btn-danger"><i class="pe-7s-trash"></i>  Borrar</a></td>
+                                                 <td> <a  href="{{route('admin_disponibilidad.destroy', $reser->id)}}" onclick="return confirmacion(¿seguro que desea cancelar la reserva?)"class="btn btn-danger"><i class="pe-7s-trash"></i>  Borrar</a></td>
                                                 @endif
                                             </tr>
 
