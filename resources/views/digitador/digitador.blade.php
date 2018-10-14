@@ -58,13 +58,13 @@
                 </li>
                 <li>
                     <a href="d_ingresar_habitacion">
-                        <i class="pe-7s-note2"></i>
+                        <i class="pe-7s-note"></i>
                         <p>Ingresar Habitacion</p>
                     </a>
                 </li>
                 <li>
                     <a href="d_listado_habitaciones">
-                        <i class="pe-7s-note2"></i>
+                        <i class="pe-7s-clock"></i>
                         <p>Habitaciones por confirmar</p>
                     </a>
                 </li>

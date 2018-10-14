@@ -52,7 +52,7 @@
             <ul class="nav">
                 <li>
                     <a href="lista_hoteles">
-                        <i class="pe-7s-note2"></i>
+                        <i class="pe-7s-search"></i>
                         <p>Hoteles</p>
                     </a>
                 </li>
@@ -64,7 +64,7 @@
                 </li>
                 <li >
   					         <a href="/reserva_admin">
-  						         <i class="pe-7s-note2"></i>
+  						         <i class="pe-7s-server"></i>
   						         <p>Reservar</p>
   					         </a>
   				      </li>
@@ -77,19 +77,19 @@
 
                 <li>
                     <a href="/ingresar">
-                        <i class="pe-7s-note2"></i>
+                        <i class="pe-7s-server"></i>
                         <p>agregar </p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="">
-                        <i class="pe-7s-note2"></i>
+                        <i class="pe-7s-print"></i>
                         <p>Reportes</p>
                     </a>
                 </li>
                 <li>
                     <a href="/lista_usuarios">
-                        <i class="pe-7s-note2"></i>
+                        <i class="pe-7s-users"></i>
                         <p>Usuarios </p>
                     </a>
                 </li>
@@ -202,28 +202,6 @@
 
                   <div class="clearfix"></div>
               </form>
-
-        <footer class="footer">
-            <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                Inicio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                ICI
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <p class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="">Team ICI</a>, Software
-                </p>
-            </div>
-        </footer>
 
     </div>
 </div>

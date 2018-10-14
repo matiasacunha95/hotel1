@@ -60,7 +60,7 @@
                 </li>
                 <li>
                     <a href="s_confirmar_datos">
-                        <i class="pe-7s-note2"></i>
+                        <i class="pe-7s-check"></i>
                         <p>Confirmar</p>
                     </a>
                 </li>
