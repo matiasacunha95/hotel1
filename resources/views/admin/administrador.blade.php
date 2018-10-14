@@ -69,12 +69,17 @@
   					 </a>
   				</li>
                 <li>
+                  <a href="/disponibilidad_admin">
+                      <i class="pe-7s-close-circle"></i>
+                      <p>Disponibilidad</p>
+                  </a>
+                </li>
+                <li>
                     <a href="/reservaciones">
                         <i class="pe-7s-note2"></i>
                         <p>Administrar Reservas</p>
                     </a>
                 </li>
-
                 <li>
                     <a href="/ingresar">
                         <i class="pe-7s-server"></i>
