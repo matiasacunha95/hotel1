@@ -164,7 +164,7 @@
                                         <td>{{$habi->precio}}</td>
                                         <td>{{$habi->cantidad}}</td>
 
-                                         <td><a  href="{{route('habitaciones.edit',$habi->id)}}" class="btn btn-blue">Editar</a></td>
+                                         <td><a  href="{{route('habitaciones.edit',$habi->id)}}" class="btn btn-blue"><i class="pe-7s-pen"></i> Editar</a></td>
 
 
                                         </tr>

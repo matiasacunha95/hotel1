@@ -164,8 +164,8 @@
                                             <td>{{$habi->capacidad}}</td>
                                             <td>{{$habi->precio}}</td>
                                             <td>{{$habi->cantidad}}</td>
-                                            <td><a  href="{{route('d_habitaciones.edit',$habi->id)}}" class="btn btn-blue">Oferta</a></td>
-                                             <td><a  href="{{route('d_habitaciones.destroy', $habi->id)}}" class="btn btn-danger">Borrar</a></td>
+                                            <td><a  href="{{route('d_habitaciones.edit',$habi->id)}}" class="btn btn-blue"><i class="pe-7s-pen"></i> Oferta</a></td>
+                                             <td><a  href="{{route('d_habitaciones.destroy', $habi->id)}}" class="btn btn-danger"><i class="pe-7s-trash"></i> Borrar</a></td>
                                             
                                         @endif
 

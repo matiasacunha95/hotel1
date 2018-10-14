@@ -158,7 +158,7 @@
 
                                         <td>{{$hotel->nombre_hotel}}</td>
 
-                                        <td> <a  href="{{route('hoteles.update',$hotel->id)}}" class="btn btn-blue">Editar</a></td>
+                                        <td> <a  href="{{route('hoteles.update',$hotel->id)}}" class="btn btn-blue"><i class="pe-7s-pen"></i> Editar</a></td>
 
                                         </tr>
                                         @endforeach

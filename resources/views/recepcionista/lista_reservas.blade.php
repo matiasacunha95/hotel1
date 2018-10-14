@@ -153,7 +153,7 @@
                                                     <td>Activo</td>
                                                 @endif
                                                 <!--<td>{{$reser->estado}}</td>-->
-                                                 <td> <a  href="{{route('r_reserva.destroy', $reser->id)}}" onclick="return confirmacion(¿seguro que desea cancelar la reserva?)"class="btn btn-danger">Borrar</a> <a  href="{{route('r_reservaciones.edit', $reser->id)}}" class="btn btn-warning">Estado</a></td>
+                                                 <td> <a  href="{{route('r_reserva.destroy', $reser->id)}}" onclick="return confirmacion(¿seguro que desea cancelar la reserva?)"class="btn btn-danger"><i class="pe-7s-trash"></i> Borrar</a> <a  href="{{route('r_reservaciones.edit', $reser->id)}}" class="btn btn-warning"><i class="pe-7s-pen"></i> Estado</a></td>
                                             </tr>
 
                                             @endforeach

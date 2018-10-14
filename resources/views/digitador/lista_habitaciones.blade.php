@@ -163,7 +163,7 @@
                                             <td>{{$habi->capacidad}}</td>
                                             <td>{{$habi->precio}}</td>
                                             <td>{{$habi->cantidad}}</td>
-                                            <td><a  href="{{route('d_habitaciones.cancel', $habi->id)}}" class="btn btn-danger">Anular</a></td>
+                                            <td><a  href="{{route('d_habitaciones.cancel', $habi->id)}}" class="btn btn-danger"><i class="pe-7s-trash"></i> Anular</a></td>
                                         @endif
 
                                         </tr>

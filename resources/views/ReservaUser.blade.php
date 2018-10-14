@@ -170,8 +170,8 @@
                                                 <td>{{$reser->num_personas}}</td>
                                                 <td>{{$reser->fecha_ingreso}}</td>
                                                 <td>{{$reser->fecha_salida}}</td>
-                                                <td> <a  href="{{route('reserva.destroy', $reser->id)}}" onclick="return confirmacion(¿seguro que desea cancelar la reserva?)"class="btn btn-danger">Cancelar</a></td>
-                                                <td> <a  href="{{route('habitacion.comentario', $reser->id)}}" onclick="return confirmacion(¿seguro que desea cancelar la reserva?)"class="btn btn-success">Comentario</a></td>
+                                                <td> <a  href="{{route('reserva.destroy', $reser->id)}}" onclick="return confirmacion(¿seguro que desea cancelar la reserva?)"class="btn btn-danger"><i class="pe-7s-trash"></i> Cancelar</a></td>
+                                                <td> <a  href="{{route('habitacion.comentario', $reser->id)}}" onclick="return confirmacion(¿seguro que desea cancelar la reserva?)"class="btn btn-success"><i class="pe-7s-pen"></i> Comentario</a></td>
                                             @endif
 
                                             </tr>

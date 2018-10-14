@@ -161,8 +161,8 @@
                                         <td>{{$habi->precio}}</td>
                                         <td>{{$habi->cantidad}}</td>
 
-                                         <td><a  href="{{route('s_confirmar.edit',$habi->id)}}" class="btn btn-success">Aceptar</a>
-                                         <a  href="{{route('s_confirmar.show', $habi->id)}}" class="btn btn-danger">Borrar</a></td>
+                                         <td><a  href="{{route('s_confirmar.edit',$habi->id)}}" class="btn btn-success"><i class="pe-7s-check"></i> Aceptar</a>
+                                         <a  href="{{route('s_confirmar.show', $habi->id)}}" class="btn btn-danger"><i class="pe-7s-trash"></i> Borrar</a></td>
 
 
                                         </tr>
