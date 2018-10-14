@@ -147,6 +147,11 @@ Route::post('admin_disponibilidad/buscador', 'Administrador\DisponibilidadContro
 Route::post('admin_disponibilidad/store', 'Administrador\DisponibilidadController@store');
 Route::get('admin_disponibilidad/{id}',['as' => 'admin_disponibilidad.show', 'uses' => 'Administrador\DisponibilidadController@show']);
 
+Route::get('/no_disponible',
+    [
+    'uses' => 'Administrador\DisponibilidadController@mostrar2',
+    'as'   => 'no_disponible']);
+
 
 /*Digitador*/
 

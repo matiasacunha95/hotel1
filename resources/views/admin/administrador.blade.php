@@ -81,6 +81,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="/no_disponible">
+                        <i class="pe-7s-hammer"></i>
+                        <p>Habitaciones no disponibles</p>
+                    </a>
+                </li>
+                <li>
                     <a href="/ingresar">
                         <i class="pe-7s-server"></i>
                         <p>agregar </p>
@@ -99,13 +105,6 @@
                     </a>
                 </li>
 
-
-                <li class="active-pro">
-                    <a href="">
-                        <i class="pe-7s-rocket"></i>
-                        <p>Creciendo cada Dia</p>
-                    </a>
-                </li>
             </ul>
         </div>
     </div>

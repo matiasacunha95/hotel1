@@ -18,7 +18,13 @@ class DisponibilidadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+        public function mostrar2()// funcion que entrega las reservas en la pagina de administrador
+    {
 
+         $reserva = Reserva::orderBy('id','ASC')->paginate(8);
+
+         return view('admin.disponibilidad.habi_no_disponible')->with('reserva', $reserva);
+    }
 
     public function buscador(Request $request)
     {

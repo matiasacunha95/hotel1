@@ -77,7 +77,12 @@
 						<p>Administrar Reservas</p>
 					</a>
 				</li>
-
+                <li>
+                    <a href="/no_disponible">
+                        <i class="pe-7s-hammer"></i>
+                        <p>Habitaciones no disponibles</p>
+                    </a>
+                </li>
 				<li>
 					<a href="/ingresar">
 						<i class="pe-7s-server"></i>
@@ -98,13 +103,6 @@
                 </li>
 
 
-
-                <li class="active-pro">
-                    <a href="">
-                        <i class="pe-7s-rocket"></i>
-                        <p>Creciendo cada Dia</p>
-                    </a>
-                </li>
             </ul>
     	</div>
     </div>
@@ -188,11 +186,13 @@
                                             @foreach($reserva as $reser)
 
                                             <tr>
-                                                <td>{{$reser->id}}</td>
-                                                <td>{{$reser->id_habitacion}}</td>
-                                                <td>{{$reser->num_personas}}</td>
-                                                <td>{{$reser->fecha_ingreso}}</td>
-                                                <td>{{$reser->fecha_salida}}</td>
+                                                @if($reser->estado == 0 or $reser->estado == 1)
+                                                    <td>{{$reser->id}}</td>
+                                                    <td>{{$reser->id_habitacion}}</td>
+                                                    <td>{{$reser->num_personas}}</td>
+                                                    <td>{{$reser->fecha_ingreso}}</td>
+                                                    <td>{{$reser->fecha_salida}}</td>
+
                                                 @if($reser->estado == 0)
                                                     <td>Cancelado</td>
                                                 @else
@@ -200,6 +200,7 @@
                                                 @endif
                                                 <!--<td>{{$reser->estado}}</td>-->
                                                  <td> <a  href="{{route('reserva.destroy1', $reser->id)}}" onclick="return confirmacion(¿seguro que desea cancelar la reserva?)"class="btn btn-danger"><i class="pe-7s-trash"></i>  Borrar</a> <a  href="{{route('admin_reserva.edit', $reser->id)}}" class="btn btn-warning"><i class="pe-7s-pen"></i> Estado</a></td>
+                                                @endif
                                             </tr>
 
                                             @endforeach
@@ -209,12 +210,12 @@
 
                                         </table>
                                         {!! $reserva->render()!!}
-                                        <td> <a  href="home" onclick=""class="btn btn-back">Volver</a></td>
+                                        
 
                                     </div>
 
 
-
+                                    <td> <a  href="home" onclick=""class="btn btn-back">Volver</a></td>
 
                                     <div class="clearfix"></div>
                                 </form>

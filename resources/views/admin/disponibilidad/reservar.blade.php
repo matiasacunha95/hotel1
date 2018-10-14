@@ -5,7 +5,7 @@
 @section('content')
 
 <div class= "container">
-		<h2>Reservacion</h2>
+		<h2>Cancerlar Disponibilidad</h2>
 		<form class="form-group" method="POST" action="/admin_disponibilidad/store">
 				@csrf
 			<div class="form-group">
@@ -31,7 +31,7 @@
 				<input type="date" name="fecha_salida" min="<?php echo date('Y-m-d');?>" class="form-control" required>
 			</div>
 			<div class="form-group">
-				<input  type="hidden" name="estado" class="form-control" value="1">
+				<input  type="hidden" name="estado" class="form-control" value="2">
 			</div>
 
 		<button type="submit" class="btn btn-primary">Guardar</button>

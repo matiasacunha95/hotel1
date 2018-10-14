@@ -82,6 +82,12 @@
                   </a>
               </li>
               <li>
+                    <a href="/no_disponible">
+                        <i class="pe-7s-hammer"></i>
+                        <p>Habitaciones no disponibles</p>
+                    </a>
+              </li>
+              <li>
                   <a href="/ingresar">
                       <i class="pe-7s-server"></i>
                       <p>agregar </p>
@@ -97,14 +103,6 @@
                     <a href="/lista_usuarios">
                         <i class="pe-7s-users"></i>
                         <p>Usuarios </p>
-                    </a>
-                </li>
-
-
-                <li class="active-pro">
-                    <a href="">
-                        <i class="pe-7s-rocket"></i>
-                        <p>Creciendo cada Dia</p>
                     </a>
                 </li>
             </ul>
@@ -171,10 +169,10 @@
 											<h2>Cancelar disponiblidad de habitación</h2>
 											<form class="form-group" method="POST" action="admin_disponibilidad/buscador">
 													@csrf
-                                                    <div class="form-group">
-                                                        <label for="">Ingrese Hotel</label>
-                                                        <input type="text" name="nombre_hotel" class="form-control" required>
-                                                    </div>
+                          <div class="form-group">
+                             <label for="">Ingrese Hotel</label>
+                             <input type="text" name="nombre_hotel" class="form-control" required>
+                          </div>
 													<div class="form-group">
 														<label for="">Ingrese un Pais</label>
 														<input type="text" name="nombre_pais" class="form-control" required>

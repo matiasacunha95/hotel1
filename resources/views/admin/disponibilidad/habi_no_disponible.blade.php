@@ -47,60 +47,62 @@
 
 
             <ul class="nav">
-							<li >
-									<a href="lista_hoteles">
-											<i class="pe-7s-search"></i>
-											<p>Hoteles</p>
-									</a>
-							</li>
-							<li class="active">
-									<a href="/lista_habitaciones">
-											<i class="pe-7s-note2"></i>
-											<p>Habitaciones </p>
-									</a>
-							</li>
-							<li >
-									<a href="/reserva_admin">
-											<i class="pe-7s-server"></i>
-											<p>Reservar</p>
-									</a>
-							</li>
-              <li>
-                  <a href="/disponibilidad_admin">
+				<li>
+				    <a href="lista_hoteles">
+					   <i class="pe-7s-search"></i>
+					   <p>Hoteles</p>
+					</a>
+				</li>
+				<li>
+					<a href="/lista_habitaciones">
+						<i class="pe-7s-note2"></i>
+						<p>Habitaciones </p>
+					</a>
+				</li>
+				<li >
+					<a href="/reserva_admin">
+						<i class="pe-7s-server"></i>
+						<p>Reservar</p>
+					</a>
+				</li>
+                <li>
+                    <a href="/disponibilidad_admin">
                       <i class="pe-7s-close-circle"></i>
                       <p>Disponibilidad</p>
-                  </a>
-              </li>
-							<li>
-									<a href="/reservaciones">
-											<i class="pe-7s-note2"></i>
-											<p>Administrar Reservas</p>
-									</a>
-							</li>
-              <li>
+                    </a>
+                </li>
+				<li>
+					<a href="/reservaciones">
+						<i class="pe-7s-note2"></i>
+						<p>Administrar Reservas</p>
+					</a>
+				</li>
+                <li class="active">
                     <a href="/no_disponible">
                         <i class="pe-7s-hammer"></i>
                         <p>Habitaciones no disponibles</p>
                     </a>
-              </li>
-							<li>
-									<a href="/ingresar">
-											<i class="pe-7s-server"></i>
-											<p>agregar </p>
-									</a>
-							</li>
-              <li>
+                </li>
+
+				<li>
+					<a href="/ingresar">
+						<i class="pe-7s-server"></i>
+						<p>agregar </p>
+					</a>
+				</li>
+                <li>
                     <a href="/reportes">
                         <i class="pe-7s-print"></i>
                         <p>Reportes</p>
                     </a>
                 </li>
-              <li>
-                  <a href="/lista_usuarios">
-                      <i class="pe-7s-users"></i>
-                      <p>Usuarios </p>
-                  </a>
-              </li>
+                <li>
+                    <a href="/lista_usuarios">
+                        <i class="pe-7s-users"></i>
+                        <p>Usuarios </p>
+                    </a>
+                </li>
+
 
             </ul>
     	</div>
@@ -154,52 +156,64 @@
                 </div>
             </div>
         </nav>
+        
 
-
+        <!--En esta seccion se mostraran todo las reservaciones -->
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
+                    </div>
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Hoteles Disponibles</h4>
+                                <h4 class="title">Habitaciones con disponibilidad cancelada</h4>
                             </div>
                             <div class="content">
                                 <form>
                                     <div class="content table-responsive table-full-width">
                                         <table class="table table-hover table-striped">
 
+
                                             <thread>
-                                            <th>Id Habitacion</th>
-                                            <th>Nombre Hotel</th>
-                                            <th>Tipo Habitacion</th>
-                                            <th>Capacidad</th>
-                                            <th>Precio</th>
-                                            <th>Cantidad</th>
-                                            <th>Acción</th>
+                                            <th>ID_HABITACION</th>
+                                            <th>NUM_PERSONAS</th>
+                                            <th>FECHA_INICIO</th>
+                                            <th>FECHA SALIDA</th>
+                                            <th>ESTADO</th>
+                                            <th>ACCION</th>
                                             </thread>
+                                            <tbody>
 
-                                        <tbody>
-                                        @foreach($habitacion as $habi)
-                                        <tr>
+                                            @foreach($reserva as $reser)
 
-                                        <td>{{$habi->id}}</td>
-                                        <td>{{$habi->nombre_hotel}}</td>
-                                        <td>{{$habi->tipo_habitacion}}</td>
-                                        <td>{{$habi->capacidad}}</td>
-                                        <td>{{$habi->precio}}</td>
-                                        <td>{{$habi->cantidad}}</td>
+                                            <tr>
+                                                @if($reser->estado == 2)
+                                                    <td>{{$reser->id_habitacion}}</td>
+                                                    <td>{{$reser->num_personas}}</td>
+                                                    <td>{{$reser->fecha_ingreso}}</td>
+                                                    <td>{{$reser->fecha_salida}}</td>
 
-                                        <td> <a  href="{{route('lista_habitaciones.destroy', $habi->id)}}" class="btn btn-danger"><i class="pe-7s-trash"> Borrar</i></a> <a  href="{{route('habitacion.edit',$habi->id)}}" class="btn btn-blue"><i class="pe-7s-pen"> Editar</i></a></td>
+                                                @if($reser->estado == 2)
+                                                    <td>Disponibilidad Cancelada</td>
+                                                @endif
+                                                <!--<td>{{$reser->estado}}</td>-->
+                                                 <td> <a  href="{{route('reserva.destroy1', $reser->id)}}" onclick="return confirmacion(¿seguro que desea cancelar la reserva?)"class="btn btn-danger"><i class="pe-7s-trash"></i>  Borrar</a></td>
+                                                @endif
+                                            </tr>
 
-                                        </tr>
-                                        @endforeach
-                                        </tbody>
+                                            @endforeach
+
+                                            </tbody>
+
+
                                         </table>
-
-                                         <td> <a  href="home" onclick=""class="btn btn-back">Volver</a></td>
+                                        {!! $reserva->render()!!}
+                                        
 
                                     </div>
+                                    <td> <a  href="home" onclick=""class="btn btn-back">Volver</a></td>
+
+
 
                                     <div class="clearfix"></div>
                                 </form>
