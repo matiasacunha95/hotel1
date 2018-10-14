@@ -141,12 +141,13 @@
                                             @foreach($reserva as $reser)
 
                                             <tr>
-                                                <td>{{$reser->id}}</td>
-                                                <td>{{$reser->id_users}}</td>
-                                                <td>{{$reser->id_habitacion}}</td>
-                                                <td>{{$reser->num_personas}}</td>
-                                                <td>{{$reser->fecha_ingreso}}</td>
-                                                <td>{{$reser->fecha_salida}}</td>
+                                                @if($reser->estado == 0 or $reser->estado == 1)
+                                                    <td>{{$reser->id}}</td>
+                                                    <td>{{$reser->id_users}}</td>
+                                                    <td>{{$reser->id_habitacion}}</td>
+                                                    <td>{{$reser->num_personas}}</td>
+                                                    <td>{{$reser->fecha_ingreso}}</td>
+                                                    <td>{{$reser->fecha_salida}}</td>
                                                 @if($reser->estado == 0)
                                                     <td>Cancelado</td>
                                                 @else
@@ -154,6 +155,7 @@
                                                 @endif
                                                 <!--<td>{{$reser->estado}}</td>-->
                                                  <td> <a  href="{{route('r_reserva.destroy', $reser->id)}}" onclick="return confirmacion(¿seguro que desea cancelar la reserva?)"class="btn btn-danger"><i class="pe-7s-trash"></i> Borrar</a> <a  href="{{route('r_reservaciones.edit', $reser->id)}}" class="btn btn-warning"><i class="pe-7s-pen"></i> Estado</a></td>
+                                                 @endif
                                             </tr>
 
                                             @endforeach
