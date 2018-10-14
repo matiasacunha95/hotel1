@@ -177,7 +177,7 @@
 
                                         <td>{{$hotel->nombre_hotel}}</td>
 
-                                        <td> <a  href="{{route('lista_hoteles.destroy', $hotel->id)}}" onclick="return confirmacion(¿seguro que desea eliminar el hotel?)"class="btn btn-danger">Borrar</a></td>
+                                        <td> <a  href="{{route('lista_hoteles.destroy', $hotel->id)}}" onclick="return confirmacion(¿seguro que desea eliminar el hotel?)"class="btn btn-danger"><i class="pe-7s-trash"></i> Borrar</a></td>
 
                                         </tr>
                                         @endforeach
