@@ -227,3 +227,7 @@ Route::get('r_reserva/{id}/destroy',[
       'uses' => 'Recepcionista\RecepcionistaController@destroy',
       'as'   => 'r_reserva.destroy']
     );
+
+/*Boleta*/
+// Route::get('descargar-boleta', 'ReservaController@pdf')->name('boleta.pdf');
+Route::get('boleta/{id}',['as' => 'reserva.pdf', 'uses' => 'Usuario\ReservaController@pdf']);
