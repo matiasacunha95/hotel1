@@ -97,28 +97,4 @@ class HabitacionController extends Controller
         $habitacion -> delete(); //Elimina los datos de la habitacion
         return redirect()->route('lista_habitaciones');
     }
-
-
-    public function comentario($id)
-    {
-        $habitacion = DB::table('reserva')
-                      ->where('reserva.id',$id)->first();
-
-        return view('ingresarcomentario', compact('habitacion'));
-                      // return $habitacion;
-
-    }
-
-    public function guardarcomentario(Request $request)
-    {
-
-        $comentario = new Comentario();
-
-        $comentario->id_habitacion = $request->input('id_habitacion');
-        $comentario->comentarios = $request->input('comentario');
-        $comentario->save();
-        return view('comentarioexito');
-
-    }
-
 }

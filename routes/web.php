@@ -34,10 +34,10 @@ Route::resource('reserva', 'Usuario\ReservaController');
 
 Route::post('reserva/buscador', 'Usuario\ReservaController@buscador');
 Route::post('reserva/store', 'Usuario\ReservaController@store');
-Route::post('reserva/guardarcomentario', 'HabitacionController@guardarcomentario');
+Route::post('reserva/guardarcomentario', 'ComentarioController@guardarcomentario');
 
 Route::get('reserva/{id}',['as' => 'reserva.show', 'uses' => 'Usuario\ReservaController@show']);
-Route::get('habitacion/{id}',['as' => 'habitacion.comentario', 'uses' => 'HabitacionController@comentario']);
+Route::get('habitacion/{id}',['as' => 'habitacion.comentario', 'uses' => 'ComentarioController@comentario']);
 
 Route::get('reservas/{id}/destroy',[
     'uses' => 'Usuario\ReservaController@destroy',
