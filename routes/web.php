@@ -34,10 +34,10 @@ Route::resource('reserva', 'Usuario\ReservaController');
 
 Route::post('reserva/buscador', 'Usuario\ReservaController@buscador');
 Route::post('reserva/store', 'Usuario\ReservaController@store');
-Route::post('reserva/guardarcomentario', 'ComentarioController@guardarcomentario');
+Route::post('reserva/guardarcomentario', 'Usuario\ComentarioController@guardarcomentario');
 
 Route::get('reserva/{id}',['as' => 'reserva.show', 'uses' => 'Usuario\ReservaController@show']);
-Route::get('habitacion/{id}',['as' => 'habitacion.comentario', 'uses' => 'ComentarioController@comentario']);
+Route::get('habitacion/{id}',['as' => 'habitacion.comentario', 'uses' => 'Usuario\ComentarioController@comentario']);
 
 Route::get('reservas/{id}/destroy',[
     'uses' => 'Usuario\ReservaController@destroy',
@@ -227,3 +227,7 @@ Route::get('r_reserva/{id}/destroy',[
       'uses' => 'Recepcionista\RecepcionistaController@destroy',
       'as'   => 'r_reserva.destroy']
     );
+
+/*Boleta*/
+// Route::get('descargar-boleta', 'ReservaController@pdf')->name('boleta.pdf');
+Route::get('boleta/{id}',['as' => 'reserva.pdf', 'uses' => 'Usuario\ReservaController@pdf']);

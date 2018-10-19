@@ -14,7 +14,7 @@
 			</div>
 			<div class="form-group">
 				<label for="">Comentario</label><!--se coloca el id de la habitacion a reservar, ya esta definido. El usuario no lo puede cambiar-->
-				<input type="text" name="comentario" class="form-control" required>
+				<textarea type="text" name="comentario" class="form-control" required>Comparte tu opinión con nosotros</textarea> 
 			</div>
 
 		<button type="submit" class="btn btn-primary">Guardar</button>	<!-- nos direcciona al controlador donde se almacena la reserva-->

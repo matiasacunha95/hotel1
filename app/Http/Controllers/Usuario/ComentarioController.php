@@ -19,8 +19,8 @@ class ComentarioController extends Controller
 	public function show($id)
  {
 	 $comentario = DB::table('comentario')   // obtenemos todos los datos de la habitacion y la retornamos a la vista de reserva
-	 							 ->select('comentario.id','comentario.id_habitacion','comentario.comentarios')
-								 ->where('comentario.id_habitacion', $id)->get(); // se obtiene el primer resultado
+	 	->select('comentario.id','comentario.id_habitacion','comentario.comentarios')
+		->where('comentario.id_habitacion', $id)->get(); // se obtiene el primer resultado
 
 	 return view('comentarios', compact('comentario'));
 
@@ -32,10 +32,10 @@ class ComentarioController extends Controller
     public function comentario($id)
     {
         $habitacion = DB::table('reserva')
-                      ->where('reserva.id',$id)->first();
+        ->where('reserva.id',$id)->first();
 
         return view('ingresarcomentario', compact('habitacion'));
-                      // return $habitacion;
+        // return $habitacion;
 
     }
 
