@@ -51,6 +51,7 @@
 		<table class="table table-responsive table-striped">
 	    <div align="center" class="alert alert-success">Reserva realizada con exito</div>
         <div align="center">
+        <a href="{{ route('reserva.pdf', $reserva->id) }}" class="btn btn-primary">Imprimir</a>
     	<a  href="/reservas" class="btn btn-primary">volver</a><!-- retorna la vista principal de las reservas-->
     </div>
     </div>

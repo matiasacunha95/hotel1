@@ -4,13 +4,29 @@ namespace hotel\Http\Controllers\Usuario;
 
 use hotel\Http\Controllers\Controller;
 use hotel\Reserva;
+use hotel\Boleta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use PDF;
+
 
 class ReservaController extends Controller
 {
+    public function pdf($id)
+    {
+        $boleta = DB::table('boleta')   
+                      ->where('id_reserva', $id)->get();
+        // return view('reserva.boleta', compact('boleta'))
+          //                 $pdf = PDF::loadView('admin.fechas', compact('reserva'));
+          // return $pdf->download('reserva.pdf');
+
+            $pdf = PDF::loadView('reserva.boleta', compact('boleta'));
+          return $pdf->download('boleta.pdf');
+
+        // return $boleta; 
+    }
     /**
      * Display a listing of the resource.
      *
@@ -197,9 +213,20 @@ public function buscador(Request $request)
                                         $reserva->estado = $request->input('estado');
                                         $reserva->save();       // se guarda en la base de datos
                                     }
+                                    // return $reserva->all();
 
                                     $cant = $request->cantidad;         //obtenemos la cantidad de habitacion a reservar
                                     $total = $request->cantidad * $reserva->costo; //obtenemos el costo total que debera cancelar el clientes
+
+                                    $boleta = new Boleta();
+                                    $boleta->id_reserva = $reserva->id;
+                                    $boleta->fecha_ingreso =  $request->input('fecha_ingreso');
+                                    $boleta->fecha_salida = $request->input('fecha_salida');
+                                    $boleta->n_habitaciones = $request->cantidad;
+                                    $boleta->p_habitacion = $reserva->costo;
+                                    $boleta->total = $total;
+                                    $boleta->save();
+
 
                                     return view('reserva.guardado', compact('reserva'), compact('total', 'cant')); // retornamos los datos de la reserva, la cantidad de habitacion y el costo total
                                     // return $cantidadhabitacion;
