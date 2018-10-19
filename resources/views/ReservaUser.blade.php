@@ -156,6 +156,7 @@
                                             <th>FECHA_INICIO</th>
                                             <th>FECHA SALIDA</th>
                                             <th>CANCELAR</th>
+                                            <th>BOLETA</th>
                                             <th>COMENTARIO</th>
                                             </thread>
                                             <tbody>
@@ -171,6 +172,7 @@
                                                 <td>{{$reser->fecha_ingreso}}</td>
                                                 <td>{{$reser->fecha_salida}}</td>
                                                 <td> <a  href="{{route('reserva.destroy', $reser->id)}}" onclick="return confirmacion(¿seguro que desea cancelar la reserva?)"class="btn btn-danger"><i class="pe-7s-trash"></i> Cancelar</a></td>
+                                                <td><a href="{{ route('reserva.pdf', $reser->id) }}" class="btn btn-primary">Imprimir</a></td>
                                                 <td> <a  href="{{route('habitacion.comentario', $reser->id)}}" onclick="return confirmacion(¿seguro que desea cancelar la reserva?)"class="btn btn-success"><i class="pe-7s-pen"></i> Comentario</a></td>
                                             @endif
 
