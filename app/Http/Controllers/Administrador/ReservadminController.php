@@ -49,6 +49,8 @@ class ReservadminController extends Controller
     {
          $fi = $request->fecha_ingreso;
          $ff = $request->fecha_salida;
+         $fi=date("Y-m-d", strtotime($fi));
+         $ff=date("Y-m-d", strtotime($ff));
 
          $conta = DB::table('reserva')
                 ->join('habitacion', 'habitacion.id', '=', 'reserva.id_habitacion')
@@ -87,9 +89,8 @@ class ReservadminController extends Controller
                       ->join('ciudad', 'ciudad.id', '=', 'hotel.id_ciudad')
                       ->join('pais', 'pais.id', '=', 'ciudad.id_pais')
                       ->select('habitacion.id', 'hotel.nombre_hotel','ciudad.nombre_ciudad', 'habitacion.tipo_habitacion', 'habitacion.capacidad', 'habitacion.precio','habitacion.cantidad')
-
                       ->where([
-                            ['habitacion.tipo_habitacion', '=', $request->tipo_habitacion], //compara en la base de datos, el tipo de habitacion, ciudad y pais que dio el cliente
+                             //compara en la base de datos, el tipo de habitacion, ciudad y pais que dio el cliente
                             ['ciudad.nombre_ciudad', '=', $request->nombre_ciudad],
                              ['pais.nombre_pais', '=', $request->nombre_pais],
                              ['habitacion.capacidad', '=', $request->capacidad],
@@ -103,7 +104,7 @@ class ReservadminController extends Controller
                       {
 
                         return view('admin.reserva.buscador_regi',compact('habitacion'), compact('conta','fi','ff'));
-                        
+
 
                       }
                       else{
@@ -237,7 +238,18 @@ class ReservadminController extends Controller
         $habitacion = DB::table('habitacion')
                       ->where('habitacion.id', $id)->first();
 
+
         return view('admin.reserva.reservar', compact('habitacion'));
+
+    }
+    public function fechas($id, $fi)
+   {
+        //$habitacion = DB::table('habitacion')
+
+                  //    ->where('habitacion.id', $id)->first();
+                  dd($fi);
+
+        //return view('admin.reserva.reservar', compact('habitacion'));
 
     }
 

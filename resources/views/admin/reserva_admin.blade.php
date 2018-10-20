@@ -182,10 +182,7 @@
 														<label for="">Ingrese una Capacidad</label>
 														<input type="text" name="capacidad" class="form-control">
 													</div>
-													<div class="form-group">
-														<label for="">Ingrese el Tipo de Habitacion</label>
-														<input type="text" name="tipo_habitacion" class="form-control" required>
-													</div>
+												
 													<div class="form-group">
 												<label for="">Fecha Ingreso</label>
 												<input type="date" name="fecha_ingreso" min="<?php echo date('Y-m-d');?>" class="form-control" required>

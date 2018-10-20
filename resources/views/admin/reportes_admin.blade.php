@@ -174,8 +174,6 @@
                                 <option value="Silver"  selected="selected">Silver</option>
                                 <option value="Golden"  selected="selected">Golden</option>
                                 <option value="Classic"  selected="selected">Classic</option>
-
-
                               </select>
                           </div>
                       </div>
@@ -184,7 +182,7 @@
                       <div class="col-md-12">
                           <div class="form-group">
                               <label for="">Fecha Inicio</label>
-                              <input type="date" name="fecha_ingreso" class="form-control" required>
+                              <input type="date" name="fecha_ingreso"  min="<?php echo date('Y-m-d');?>" class="form-control" required>
                           </div>
                       </div>
                   </div>
@@ -192,7 +190,7 @@
                       <div class="col-md-12">
                           <div class="form-group">
                               <label for="">Fecha Fin</label>
-                              <input type="date" name="fecha_salida" class="form-control" required>
+                              <input type="date" name="fecha_salida" min="<?php echo date('Y-m-d');?>" class="form-control" required>
                           </div>
                       </div>
                   </div>
