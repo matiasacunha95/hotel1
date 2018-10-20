@@ -51,9 +51,14 @@
                                                                     <td>{{$habitacion->precio}}</td>
                                                                     <td>{{$habitacion->cantidad}}</td>
                                                                     <td>{{$habitacion-> cantidad - $contador->contador}}</td>
+                                                                    <td>{{$fi}}</td>
+                                                                    <td>{{$ff}}</td>
+
 
                                                                     <td>
-                                                                        <a href="{{ route('reservadmin.show', $habitacion->id) }}" class="btn btn-primary">Reservar</a>
+
+
+                                                                        <a  href="{{ route('reservadmin.show', $habitacion->id, $fi) }}" class="btn btn-primary">Reservar</a>
                                                                     </td>
                                                                 </tr>
                                                             @endif
@@ -73,6 +78,8 @@
                                                                     <td>{{$habitacion->precio}}</td>
                                                                     <td>{{$habitacion->cantidad}}</td>
                                                                     <td>{{$habitacion-> cantidad}}</td>
+                                                                    <td>{{$fi}}</td>
+                                                                    <td>{{$ff}}</td>
                                                                     <td>
                                                                         <a href="{{ route('reservadmin.show', $habitacion->id) }}" class="btn btn-primary">Reservar</a>
 

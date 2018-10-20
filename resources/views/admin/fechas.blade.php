@@ -118,21 +118,44 @@ table {
 								<thead>
 									<tr>
 										<th>Id</th>
+										<th>Tipo Habitacion</th>
+										<th>Reservada a </th>
 										<th>Precio</th>
 										<th>Fecha Ingreso</th>
 										<th>Fecha Salida</th>
 
+
+
 									</tr>
 								</thead>
+
 								<tbody>
 									@foreach($reserva as $rese)
+
 										<tr>
 											<td>{{ $rese->id}}</td>
+											<td>{{ $rese->tipo_habitacion}}</td>
+											<td>{{ $rese->name}}</td>
 											<td>{{ $rese->costo}}</td>
 											<td>{{ $rese->fecha_ingreso}}</td>
 											<td>{{ $rese->fecha_salida}}</td>
+
 										</tr>
 									@endforeach
+								</tbody>
+							</table>
+							<table class = "table">
+								<thead>
+									<tr>
+										<th></th>
+										<th>Ventas</th>
+									</tr>
+								</thead>
+								<tbody>
+										<tr>
+											<td></td>
+											<td>{{ $total}}</td>
+										</tr>
 								</tbody>
 							</table>
 						</div>
