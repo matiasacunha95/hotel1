@@ -47,6 +47,7 @@ class ReporteventaController extends Controller
                       ['reserva.fecha_ingreso', '>', $request->fecha_ingreso],
                       ['reserva.fecha_salida', '<', $request->fecha_salida],
                       ])
+
           ->get();
 
           $costo=DB::table('reserva')//Consulta que obtiene los anuncios que cumple con las condiciones (región y fecha) dadas por la secretaria
