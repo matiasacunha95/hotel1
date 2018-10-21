@@ -159,32 +159,18 @@
         </nav>
 
         <div class="content text-center"> <!-- Aca se rellena para que muestre los hoteles -->
-            <h1>Genera tu informe</h1><br><br>
+            <h1>Generar Informe de Ventas</h1><br><br>
             <div class="container">
 
               <form class="form-group" method="POST" action="/admin_reporte">
                 @csrf
 
-                  <div class="row">
-                      <div class="col-md-12">
-                          <div class="form-group">
-                              <label for="">Tipo Habitacion</label>
-                              <select name="tipo_habitacion" class="form-control">
-                                <option value="Gold " selected="selected">Gold</option>
-                                <option value="Silver"  selected="selected">Silver</option>
-                                <option value="Golden"  selected="selected">Golden</option>
-                                <option value="Classic"  selected="selected">Classic</option>
 
-
-                              </select>
-                          </div>
-                      </div>
-                  </div>
                   <div class="row">
                       <div class="col-md-12">
                           <div class="form-group">
                               <label for="">Fecha Inicio</label>
-                              <input type="date" name="fecha_ingreso" class="form-control" required>
+                              <input type="date" name="fecha_ingreso"  min="<?php echo date('Y-m-d');?>" class="form-control" required>
                           </div>
                       </div>
                   </div>
@@ -192,7 +178,7 @@
                       <div class="col-md-12">
                           <div class="form-group">
                               <label for="">Fecha Fin</label>
-                              <input type="date" name="fecha_salida" class="form-control" required>
+                              <input type="date" name="fecha_salida" min="<?php echo date('Y-m-d');?>" class="form-control" required>
                           </div>
                       </div>
                   </div>
