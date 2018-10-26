@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -35,44 +33,56 @@
 <body>
 
 <div class="wrapper">
-    <div class="sidebar" data-color="orange" data-image="pagina/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="green" data-image="pagina/img/sidebar-5.jpg">
 
     <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
 
 
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <a class="simple-text" href="{{ url('./home') }}"}>
+                <a class="simple-text" href="{{ url('/secretaria') }}">
                     <img src="pagina/img/leon.png" border="0" width="200" height="100">
                 </a>
             </div>
 
+
             <ul class="nav">
-                 <li>
-                    <a href="hotel">
-                        <i class="pe-7s-search"></i>
-                        <p>Listado de hoteles</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="/perfil">
-                        <i class="pe-7s-user"></i>
-                        <p>Mi perfil</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="reserva">
+				<li>
+                    <a href="s_listado_hoteles">
                         <i class="pe-7s-note2"></i>
-                        <p>Reservar</p>
+                        <p>Listado de Hoteles</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="s_listado_habitaciones">
+                        <i class="pe-7s-note2"></i>
+                        <p>Listado de habitaciones</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="s_confirmar_datos">
+                        <i class="pe-7s-check"></i>
+                        <p>Confirmar</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="disponibilidad_secretaria">
+                        <i class="pe-7s-close-circle"></i>
+                        <p>Disponibilidad</p>
                     </a>
                 </li>
                 <li class="active">
-                    <a href="/reservas">
-                        <i class="pe-7s-note2"></i>
-                        <p>Mis Reservas</p>
+                    <a href="s_no_disponible">
+                        <i class="pe-7s-hammer"></i>
+                        <p>Habitaciones no disponible</p>
                     </a>
                 </li>
-
+                <li>
+                    <a href="s_reportes">
+                        <i class="pe-7s-print"></i>
+                        <p>Reporte de Ventas</p>
+                    </a>
+                </li>
 
 
                 <li class="active-pro">
@@ -81,6 +91,8 @@
                         <p>Creciendo cada Dia</p>
                     </a>
                 </li>
+
+
             </ul>
     	</div>
     </div>
@@ -95,7 +107,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="home">Bienvenido a Hoteles ICI </a>
+                    <a class="navbar-brand" href="secretaria">Bienvenido a Hoteles ICI </a>
                 </div>
                 <div class="collapse navbar-collapse">
                   <ul class="nav navbar-nav navbar-right">
@@ -133,51 +145,55 @@
                 </div>
             </div>
         </nav>
+        
 
-        <!--En esta seccion se mostraran todas las reservaciones que ha realizado el usuario, podra cancerlar sus reservaciones -->
+        <!--En esta seccion se mostraran todo las reservaciones -->
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
+                    </div>
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Mis reservas</h4>
+                                <h4 class="title">Habitaciones con disponibilidad cancelada</h4>
                             </div>
                             <div class="content">
                                 <form>
                                     <div class="content table-responsive table-full-width">
                                         <table class="table table-hover table-striped">
 
-                                            <!--mostramos en la vista las reservas realizadas por el usuario-->
+
                                             <thread>
-                                            <th>ID</th>
                                             <th>ID_HABITACION</th>
                                             <th>NUM_PERSONAS</th>
                                             <th>FECHA_INICIO</th>
                                             <th>FECHA SALIDA</th>
-                                            <th>CANCELAR</th>
-                                            <th>BOLETA</th>
-                                            <th>COMENTARIO</th>
+                                            <th>ESTADO</th>
+                                            <th>ACCION</th>
                                             </thread>
                                             <tbody>
 
-                                            @foreach($reserva as $reser) <!--recorre todo los registro encontrados que pertenezcan al usuario-->
-                                            @if($reser->id_users == (Auth::user()->id)) <!--condiciona que solo sean del usuario especifico-->
+                                            @foreach($reserva as $reser)
+
                                             <tr>
+                                                @if($reser->estado == 2 or $reser->estado == 3 or $reser->estado == 4 )
+                                                    <td>{{$reser->id_habitacion}}</td>
+                                                    <td>{{$reser->num_personas}}</td>
+                                                    <td>{{$reser->fecha_ingreso}}</td>
+                                                    <td>{{$reser->fecha_salida}}</td>
 
-                                             @if($reser->estado == 1)
-                                                <td>{{$reser->id}}</td>
-                                                <td>{{$reser->id_habitacion}}</td>
-                                                <td>{{$reser->num_personas}}</td>
-                                                <td>{{$reser->fecha_ingreso}}</td>
-                                                <td>{{$reser->fecha_salida}}</td>
-                                                <td> <a  href="{{route('reserva.destroy', $reser->id)}}" onclick="return confirmacion(¿seguro que desea cancelar la reserva?)"class="btn btn-danger"><i class="pe-7s-trash"></i> Cancelar</a></td>
-                                                <td><a href="{{ route('reserva.pdf', $reser->id) }}" class="btn btn-primary"><i class="pe-7s-print"></i> Imprimir</a></td>
-                                                <td> <a  href="{{route('habitacion.comentario', $reser->id)}}" onclick="return confirmacion(¿seguro que desea cancelar la reserva?)"class="btn btn-success"><i class="pe-7s-pen"></i> Comentario</a></td>
-                                            @endif
-
+                                                @if($reser->estado == 2)
+                                                    <td>Mantenimiento</td>
+                                                @elseif($reser->estado == 3)
+                                                    <td>Remodelación</td>
+                                                @else($reser->estado == 4)
+                                                    <td>Otro Motivo</td>
+                                                @endif
+                                                <!--<td>{{$reser->estado}}</td>-->
+                                                 <td> <a  href="{{route('secretaria_disponibilidad.destroy', $reser->id)}}" onclick="return confirmacion(¿seguro que desea cancelar la reserva?)"class="btn btn-danger"><i class="pe-7s-trash"></i>  Borrar</a></td>
+                                                @endif
                                             </tr>
-                                            @endif
+
                                             @endforeach
 
                                             </tbody>
@@ -185,9 +201,10 @@
 
                                         </table>
                                         {!! $reserva->render()!!}
+                                        
 
                                     </div>
-
+                                    <td> <a  href="home" onclick=""class="btn btn-back">Volver</a></td>
 
 
 

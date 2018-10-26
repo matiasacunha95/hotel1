@@ -138,7 +138,6 @@ Route::get('lista_usuarios/{id}/destroy',[
 
                     /*Disponibilidad por fechas*/
 
-                    /*Rserva Admin */
 Route::get('disponibilidad_admin', function () {
         return view('/admin/disponibilidad/disponibilidad');
     });
@@ -199,6 +198,41 @@ Route::post('/hoteles/{id}', 'Secretaria\SecretariaController@update');
                     /*Habitaciones*/
 Route::get('/s_listado_habitaciones', 'Secretaria\S_habitacionController@index')->name('s_listado_habitaciones');
 Route::resource('habitaciones', 'Secretaria\S_habitacionController');
+
+
+                    /*Disponibilidad por fechas*/
+
+Route::get('disponibilidad_secretaria', function () {
+        return view('/secretaria/disponibilidad/disponibilidad');
+    });
+
+Route::resource('secretaria_disponibilidades', 'Secretaria\S_disponibilidadController');
+Route::post('secretaria_disponibilidad/buscador', 'Secretaria\S_disponibilidadController@buscador');
+Route::post('secretaria_disponibilidad/store', 'Secretaria\S_disponibilidadController@store');
+Route::get('secretaria_disponibilidad/{id}',['as' => 'secretaria_disponibilidad.show', 'uses' => 'Secretaria\S_disponibilidadController@show']);
+
+Route::get('/s_no_disponible',
+    [
+    'uses' => 'Secretaria\S_disponibilidadController@mostrar2',
+    'as'   => 's_no_disponible']);
+
+Route::get('secretaria_disponibilidad/{id}/destroy',[
+      'uses' => 'Secretaria\S_disponibilidadController@destroy',
+      'as'   => 'secretaria_disponibilidad.destroy']
+    );
+
+                    /*Reporte de ventas*/
+
+Route::resource('s_reporte', 'Secretaria\S_ReporteventaController');
+Route::post('/secretaria_reporte', 'Secretaria\S_reporteventaController@busqueda');
+
+Route::get('s_fechas', function () {
+    return view('/secretaria/fechas');
+});
+
+Route::get('/s_reportes', function () {
+    return view('/secretaria/reportes_secretaria');
+});
 
 
 
