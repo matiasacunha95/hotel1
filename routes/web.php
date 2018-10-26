@@ -123,7 +123,7 @@ Route::resource('admin_reserva', 'Administrador\ReservadminController');
 Route::post('reservadmin/buscador', 'Administrador\ReservadminController@buscador');
 Route::post('reservadmin/store', 'Administrador\ReservadminController@store');
 Route::get('reservadmin/{id}',['as' => 'reservadmin.show', 'uses' => 'Administrador\ReservadminController@show']);
-//Route::get('reservadmin/{id}/{fi}',['as' => 'reservadmin.fechas', 'uses' => 'Administrador\ReservadminController@fechas']);
+Route::get('reservadmin/{id}/{fi}/{ff}',['as' => 'reservadmin.fechas', 'uses' => 'Administrador\ReservadminController@fechas']);
 
                     /*Destroy*/
 

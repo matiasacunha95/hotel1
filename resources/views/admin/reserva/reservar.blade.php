@@ -26,11 +26,11 @@
 			</div>
 			<div class="form-group">
 				<label for="">Fecha Ingreso</label>
-				<input type="date" name="fecha_ingreso"  min="<?php echo date('Y-m-d');?>" class="form-control" required>
+				<input type="date" name="fecha_ingreso"  min="<?php echo date('Y-m-d');?>" class="form-control" value="{{$fecha_inicio}}"  required>
 			</div>
 			<div class="form-group">
 				<label for="">Fecha Salida</label>
-				<input type="date" name="fecha_salida" min="<?php echo date('Y-m-d');?>" class="form-control" required>
+				<input type="date" name="fecha_salida" min="<?php echo date('Y-m-d');?>" class="form-control" value="{{$fecha_fin}}" required>
 			</div>
 			<div class="form-group">
 				<input  type="hidden" name="estado" class="form-control" value="1">

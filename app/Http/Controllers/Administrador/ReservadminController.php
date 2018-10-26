@@ -242,14 +242,15 @@ class ReservadminController extends Controller
         return view('admin.reserva.reservar', compact('habitacion'));
 
     }
-    public function fechas($id, $fi)
+    public function fechas($id, $fi,$ff)
    {
-        //$habitacion = DB::table('habitacion')
+        $habitacion = DB::table('habitacion')
 
-                  //    ->where('habitacion.id', $id)->first();
-                  dd($fi);
+                  ->where('habitacion.id', $id)->first();
+                  $fecha_inicio = $fi;
+                  $fecha_fin = $ff;
 
-        //return view('admin.reserva.reservar', compact('habitacion'));
+        return view('admin.reserva.reservar',compact('habitacion', 'fecha_inicio', 'fecha_fin'));
 
     }
 
