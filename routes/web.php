@@ -36,7 +36,7 @@ Route::post('reserva/buscador', 'Usuario\ReservaController@buscador');
 Route::post('reserva/store', 'Usuario\ReservaController@store');
 Route::post('reserva/guardarcomentario', 'Usuario\ComentarioController@guardarcomentario');
 
-Route::get('reserva/{id}',['as' => 'reserva.show', 'uses' => 'Usuario\ReservaController@show']);
+Route::get('reserva/{id}/{fi}/{ff}',['as' => 'reserva.show', 'uses' => 'Usuario\ReservaController@show']);
 Route::get('habitacion/{id}',['as' => 'habitacion.comentario', 'uses' => 'Usuario\ComentarioController@comentario']);
 
 Route::get('reservas/{id}/destroy',[

@@ -11,7 +11,7 @@
                         <div class="card">
                             <div class="header">
                                 <br>
-                                <h4 align="center" class="title">Botela</h4>
+                                <h4 align="center" class="title">Boleta</h4>
                                 <br>
                             </div>
                             <div class="content">

@@ -26,11 +26,11 @@
 			</div>
 			<div class="form-group">
 				<label for="">Fecha Ingreso</label> <!-- el usuario coloca la fecha de inicio de la reserva-->
-				<input type="date" name="fecha_ingreso"  min="<?php echo date('Y-m-d');?>" class="form-control" required>
+				<input type="date" name="fecha_ingreso"  min="<?php echo date('Y-m-d');?>" class="form-control" value="{{$fi}}" required>
 			</div>
 			<div class="form-group">
 				<label for="">Fecha Salida</label>  <!-- el usuario coloca la fecha de salida de la reserva-->
-				<input type="date" name="fecha_salida" min="<?php echo date('Y-m-d');?>" class="form-control" required>
+				<input type="date" name="fecha_salida" min="<?php echo date('Y-m-d');?>" class="form-control" value="{{$ff}}" required>
 			</div>
 			<div class="form-group">
 				<input  type="hidden" name="estado" class="form-control" value="1">

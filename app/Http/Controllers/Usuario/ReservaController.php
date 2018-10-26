@@ -62,6 +62,10 @@ class ReservaController extends Controller
 
 public function buscador(Request $request)
     {
+         $fi = $request->fecha_ingreso;
+         $ff = $request->fecha_salida;
+         $fi=date("Y-m-d", strtotime($fi));
+         $ff=date("Y-m-d", strtotime($ff));
         // realizamos una consulta a la base de datos para obtener los id de las habitaciones y que cuente las reservas realizadas en una misma fecha para cada habitacion
          $conta = DB::table('reserva') //consultamos en la tabla reserva
                 ->join('habitacion', 'habitacion.id', '=', 'reserva.id_habitacion') //se conecta la tabla reservacon habitacion
@@ -101,7 +105,7 @@ public function buscador(Request $request)
                       ->select('habitacion.id', 'hotel.nombre_hotel','ciudad.nombre_ciudad', 'habitacion.tipo_habitacion', 'habitacion.capacidad', 'habitacion.precio','habitacion.cantidad') //consultamos por algunos campos de las diferentes tablas
 
                       ->where([                                             //compara en la base de datos, el tipo de habitacion, ciudad y pais que dio el cliente. Asi mostramos las habitaciones que cumplen con esa condicion
-                            ['habitacion.tipo_habitacion', '=', $request->tipo_habitacion],
+                            //['habitacion.tipo_habitacion', '=', $request->tipo_habitacion],
                             ['ciudad.nombre_ciudad', '=', $request->nombre_ciudad],
                              ['pais.nombre_pais', '=', $request->nombre_pais],
                              ['habitacion.capacidad', '=', $request->capacidad],
@@ -112,7 +116,7 @@ public function buscador(Request $request)
 
                       if (($request->input('fecha_ingreso')) <= ($request->input('fecha_salida')) )
                       {
-                            return view('reserva.buscador_regi',compact('habitacion'), compact('conta')); //retornamos la variable habitacion(con la que buscamos el pais, ciudad y tipo) y conta(con la que buscamos las fechas en donde coincide)
+                            return view('reserva.buscador_regi',compact('habitacion'), compact('conta', 'fi', 'ff')); //retornamos la variable habitacion(con la que buscamos el pais, ciudad y tipo) y conta(con la que buscamos las fechas en donde coincide)
                       }
                       else{
                             return view('reserva.errorfecha_busca');  // manda error si la fecha de salida es menor a la de ingreso
@@ -254,12 +258,12 @@ public function buscador(Request $request)
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $fi, $ff)
    {
         $habitacion = DB::table('habitacion')   // obtenemos todos los datos de la habitacion y la retornamos a la vista de reserva
                       ->where('habitacion.id', $id)->first(); // se obtiene el primer resultado
 
-        return view('reserva.reservar', compact('habitacion'));
+        return view('reserva.reservar', compact('habitacion', 'fi', 'ff'));
 
     }
 
