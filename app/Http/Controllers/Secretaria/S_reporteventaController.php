@@ -1,6 +1,6 @@
 <?php
 
-namespace hotel\Http\Controllers\Administrador;
+namespace hotel\Http\Controllers\Secretaria;
 
 use hotel\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use PDF;
 
-class ReporteventaController extends Controller
+class S_reporteventaController extends Controller
 {
   public function index()
 	{
@@ -100,7 +100,7 @@ class ReporteventaController extends Controller
 
           //return view('admin.fechas')->with('reserva', $reserva)->with('total', $total);
 
-          $pdf = PDF::loadView('admin.fechas', compact('reserva','total'));
+          $pdf = PDF::loadView('secretaria.fechas', compact('reserva','total'));
           return $pdf->download('reserva.pdf');
 
 

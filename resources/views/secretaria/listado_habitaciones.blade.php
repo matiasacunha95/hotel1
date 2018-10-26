@@ -65,6 +65,24 @@
                         <p>Confirmar</p>
                     </a>
                 </li>
+                <li>
+                    <a href="disponibilidad_secretaria">
+                        <i class="pe-7s-close-circle"></i>
+                        <p>Disponibilidad</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="s_no_disponible">
+                        <i class="pe-7s-hammer"></i>
+                        <p>Habitaciones no disponible</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="s_reportes">
+                        <i class="pe-7s-print"></i>
+                        <p>Reporte de Ventas</p>
+                    </a>
+                </li>
 
 
                 <li class="active-pro">
@@ -73,8 +91,6 @@
                         <p>Creciendo cada Dia</p>
                     </a>
                 </li>
-
-
 							
             </ul>
     	</div>
